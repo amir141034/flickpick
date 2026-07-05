@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { Movie } from '../types/tmdb'
 
 interface MovieCardProps {
@@ -6,7 +7,7 @@ interface MovieCardProps {
 
 export function MovieCard({ movie }: MovieCardProps) {
   return (
-    <div className="text-white">
+    <Link to={`/movie/${movie.id}`} className="text-white">
       <img
         src={
           movie.poster_path
@@ -14,9 +15,9 @@ export function MovieCard({ movie }: MovieCardProps) {
             : 'https://placehold.co/300x450?text=No+Poster'
         }
         alt={movie.title}
-        className="rounded aspect-2/3 object-cover w-full"
+        className="rounded aspect-[2/3] object-cover w-full"
       />
       <p className="text-sm mt-1 truncate">{movie.title}</p>
-    </div>
+    </Link>
   )
 }
