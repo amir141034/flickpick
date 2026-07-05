@@ -1,14 +1,15 @@
 import { useCallback } from 'react'
-import { useInfiniteMovies } from '../composables/useInfiniteMovies'
-import { useIntersectionObserver } from '../composables/useIntersectionObserver'
-import { MovieCard } from '../components/MovieCard'
-import { MovieGridSkeleton } from '../components/MovieGridSkeleton'
+import { useMoodMovies } from '../../composables/useMoodMovies'
+import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
+import { MovieCard } from '../layout/MovieCard'
+import { MovieGridSkeleton } from '../skeleton/MovieGridSkeleton'
+import type { Mood } from '../../composables/moodConfig'
 
-interface MovieGridProps {
-  genreId: number | null
+interface MoodResultsProps {
+  mood: Mood
 }
 
-export function MovieGrid({ genreId }: MovieGridProps) {
+export function MoodResults({ mood }: MoodResultsProps) {
   const {
     data,
     isLoading,
@@ -17,7 +18,7 @@ export function MovieGrid({ genreId }: MovieGridProps) {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-  } = useInfiniteMovies(genreId)
+  } = useMoodMovies(mood)
 
   const handleIntersect = useCallback(() => {
     if (hasNextPage) fetchNextPage()
@@ -33,6 +34,10 @@ export function MovieGrid({ genreId }: MovieGridProps) {
 
   const movies = data?.pages.flatMap((page) => page.results) ?? []
 
+  if (movies.length === 0) {
+    return <p className="text-gray-600 dark:text-gray-400 p-4">No matches for this mood right now.</p>
+  }
+
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
@@ -43,7 +48,6 @@ export function MovieGrid({ genreId }: MovieGridProps) {
 
       {isFetchingNextPage && <MovieGridSkeleton count={4} />}
 
-      {/* Sentinel element — triggers next page when it scrolls into view */}
       <div ref={observerTarget} className="h-4" />
     </>
   )

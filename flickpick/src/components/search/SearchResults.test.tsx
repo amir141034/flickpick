@@ -3,10 +3,10 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import { SearchResults } from './SearchResults'
-import { tmdbFetch } from '../api/tmdb'
+import { tmdbFetch } from '../../api/tmdb'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import favoritesReducer from '../composables/favoritesSlice'
+import favoritesReducer from '../../composables/favoritesSlice'
 
 vi.mock('../../../api/tmdb', () => ({
   tmdbFetch: vi.fn(),

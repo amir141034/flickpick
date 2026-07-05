@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useDebounce } from '../composables/useDebounce'
-import { GenreSelector } from './GenreSelector'
-import { MovieGrid } from './MovieGrid'
-import { SearchBar } from '../components/SearchBar'
-import { SearchResults } from '../components/SearchResults'
+import { GenreSelector } from '../components/GenreSelector'
+import { MovieGrid } from '../components/layout/MovieGrid'
+import { SearchBar } from '../components/search/SearchBar'
+import { SearchResults } from '../components/search/SearchResults'
 
 export function BrowsePage() {
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null)

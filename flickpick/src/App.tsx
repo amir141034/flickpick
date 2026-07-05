@@ -1,8 +1,8 @@
 import { Routes, Route, Link } from 'react-router-dom'
-import { BrowsePage } from './components/BrowsePage'
-import { MovieDetailPage } from './components/MovieDetailPage'
-import { WatchlistPage } from './components/WatchListPage'
-import { MoodPage } from './components/MoodPage'
+import { BrowsePage } from './pages/BrowsePage'
+import { MovieDetailPage } from './pages/MovieDetailPage'
+import { WatchlistPage } from './pages/WatchListPage'
+import { MoodPage } from './pages/MoodPage'
 import { ThemeToggle } from './components/ThemeToggle'
 
 function App() {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks'
-import { MovieCard } from '../components/MovieCard'
+import { MovieCard } from '../components/layout/MovieCard'
 
 export function WatchlistPage() {
   const favorites = useAppSelector((state: any) => state.favorites.items)

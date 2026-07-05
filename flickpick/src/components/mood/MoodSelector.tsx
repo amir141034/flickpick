@@ -1,4 +1,4 @@
-import { moods, type Mood } from '../composables/moodConfig'
+import { moods, type Mood } from '../../composables/moodConfig'
 
 interface MoodSelectorProps {
   selectedMood: Mood | null

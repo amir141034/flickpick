@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { MoodSelector } from './MoodSelector'
-import { MoodResults } from './MoodResults'
+import { MoodSelector } from '../components/mood/MoodSelector'
+import { MoodResults } from '../components/mood/MoodResults'
 import type { Mood } from '../composables/moodConfig'
 
 export function MoodPage() {
