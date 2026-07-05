@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import { BrowsePage } from './components/BrowsePage'
 import { MovieDetailPage } from './components/MovieDetailPage'
 import { WatchlistPage } from './components/WatchListPage'
+import { MoodPage } from './components/MoodPage'
 import { ThemeToggle } from './components/ThemeToggle'
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <nav className="flex justify-between items-center p-4 text-gray-900 dark:text-white">
         <Link to="/" className="font-bold text-lg">🎬 MovieDB</Link>
-        <div className="flex items-center gap-4">
-          <Link to="/watchlist" className="text-sm hover:underline">My Watchlist</Link>
+        <div className="flex items-center gap-4 text-sm">
+          <Link to="/moods" className="hover:underline">Moods</Link>
+          <Link to="/watchlist" className="hover:underline">My Watchlist</Link>
           <ThemeToggle />
         </div>
       </nav>
@@ -18,6 +20,7 @@ function App() {
         <Route path="/" element={<BrowsePage />} />
         <Route path="/movie/:id" element={<MovieDetailPage />} />
         <Route path="/watchlist" element={<WatchlistPage />} />
+        <Route path="/moods" element={<MoodPage />} />
       </Routes>
     </div>
   )
