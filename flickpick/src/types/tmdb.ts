@@ -14,3 +14,8 @@ export interface TMDBResponse<T> {
   total_pages: number
   total_results: number
 }
+
+export interface Genre {
+  id: number
+  name: string
+}

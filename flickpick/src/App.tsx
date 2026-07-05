@@ -1,18 +1,14 @@
-import { useTrending } from './composables/useTrending'
-import { MovieCard } from './components/MovieCard'
-import { MovieGridSkeleton } from './components/MovieGridSkeleton'
+import { useState } from 'react'
+import { GenreSelector } from './components/GenreSelector'
+import { MovieGrid } from './components/MovieGrid'
 
 function App() {
-  const { data, isLoading, isError, error } = useTrending()
-
-  if (isLoading) return <MovieGridSkeleton />
-  if (isError) return <p className="text-red-500 p-4">Error: {error.message}</p>
+  const [selectedGenre, setSelectedGenre] = useState<number | null>(null)
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4">
-      {data?.results.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+    <div className="min-h-screen bg-gray-900">
+      <GenreSelector selectedGenre={selectedGenre} onSelect={setSelectedGenre} />
+      <MovieGrid genreId={selectedGenre} />
     </div>
   )
 }
