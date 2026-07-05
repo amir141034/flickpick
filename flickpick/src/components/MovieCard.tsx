@@ -8,7 +8,7 @@ interface MovieCardProps {
 
 export function MovieCard({ movie }: MovieCardProps) {
   return (
-    <Link to={`/movie/${movie.id}`} className="text-white relative block">
+    <Link to={`/movie/${movie.id}`} className="text-gray-900 dark:text-white relative block">
       <FavoriteButton
         movie={movie}
         className="absolute top-2 right-2 text-2xl z-10 drop-shadow"

@@ -15,7 +15,9 @@ export function GenreSelector({ selectedGenre, onSelect }: GenreSelectorProps) {
       <button
         onClick={() => onSelect(null)}
         className={`px-3 py-1 rounded-full text-sm whitespace-nowrap ${
-          selectedGenre === null ? 'bg-white text-black' : 'bg-gray-700 text-white'
+          selectedGenre === null
+            ? 'bg-gray-900 text-white dark:bg-white dark:text-black'
+            : 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white'
         }`}
       >
         Trending
@@ -25,7 +27,9 @@ export function GenreSelector({ selectedGenre, onSelect }: GenreSelectorProps) {
           key={genre.id}
           onClick={() => onSelect(genre.id)}
           className={`px-3 py-1 rounded-full text-sm whitespace-nowrap ${
-            selectedGenre === genre.id ? 'bg-white text-black' : 'bg-gray-700 text-white'
+            selectedGenre === genre.id 
+            ? 'bg-gray-900 text-white dark:bg-white dark:text-black'
+            : 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white'
           }`}
         >
           {genre.name}

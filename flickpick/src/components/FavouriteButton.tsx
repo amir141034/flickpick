@@ -21,7 +21,7 @@ export function FavoriteButton({ movie, className = '' }: FavoriteButtonProps) {
         dispatch(toggleFavorite(movie))
       }}
       aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-      className={`${className} ${isFavorite ? 'text-red-500' : 'text-white'}`}
+      className={`${className} ${isFavorite ? 'text-red-500' : 'text-gray-400 dark:text-white'}`}
     >
       {isFavorite ? '♥' : '♡'}
     </button>

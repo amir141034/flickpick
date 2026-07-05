@@ -13,12 +13,12 @@ export function MovieDetailPage() {
   if (!data) return null
 
   return (
-    <div className="p-4 text-white max-w-3xl mx-auto">
-      <button onClick={() => navigate(-1)} className="mb-4 text-sm text-gray-400 hover:text-white">
+    <div className="p-4 text-gray-900 dark:text-white max-w-3xl mx-auto">
+      <button onClick={() => navigate(-1)} className="mb-4 text-sm text-gray-600 dark:text-gray-400 hover:text-white">
         ← Back
       </button>
 
-      <div className="flex flex-col sm:flex-row gap-6">
+      <div className="flex flex-col md:flex-row sm:flex-row gap-6">
         <img
           src={
             data.poster_path
@@ -32,7 +32,7 @@ export function MovieDetailPage() {
         <div className='flex items-center gap-3'>
           <h1 className="text-2xl font-bold">{data.title}</h1>
           <FavoriteButton movie={data} className="text-2xl" />
-          {data.tagline && <p className="text-gray-400 italic mt-1">{data.tagline}</p>}
+          {data.tagline && <p className="text-gray-600 dark:text-gray-400 italic mt-1">{data.tagline}</p>}
 
           <div className="flex gap-4 text-sm text-gray-300 mt-3">
             <span>⭐ {data.vote_average.toFixed(1)}</span>
