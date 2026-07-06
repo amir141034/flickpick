@@ -4,6 +4,7 @@ import { MovieDetailPage } from './pages/MovieDetailPage'
 import { WatchlistPage } from './pages/WatchListPage'
 import { MoodPage } from './pages/MoodPage'
 import { ThemeToggle } from './components/ThemeToggle'
+import { NotFound } from './components/Error'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetailPage />} />
         <Route path="/watchlist" element={<WatchlistPage />} />
         <Route path="/moods" element={<MoodPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   )
