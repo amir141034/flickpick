@@ -44,20 +44,18 @@
   }
 }
 
+html {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font: 18px var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
-}
-
-.hide-scrollbar {
-    scrollbar-width: none;          /* Hides scroll bar in Firefox */
-    -ms-overflow-style: none;       /* Hides scroll bar in IE and Edge */
-}
-
-/* Hides scroll bar in Chrome, Safari, and Opera */
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
 }

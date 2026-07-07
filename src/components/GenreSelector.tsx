@@ -11,21 +11,13 @@ export function GenreSelector({ selectedGenre, onSelect }: GenreSelectorProps) {
   if (isLoading) return null
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-  const container = e.currentTarget;
-
-  const atStart = container.scrollLeft === 0;
-  const atEnd =
-    container.scrollLeft + container.clientWidth >= container.scrollWidth;
-
-  if ((e.deltaY < 0 && !atStart) || (e.deltaY > 0 && !atEnd)) {
-      e.preventDefault();
-      container.scrollLeft += e.deltaY;
-    }
+    e.preventDefault();
+    e.currentTarget.scrollLeft += e.deltaY;
   };
 
   return (
     <div
-      className="flex gap-3 overflow-x-auto hide-scrollbar px-4 py-3"
+      className="flex gap-3 overflow-x-auto overscroll-contain px-4 py-3"
       onWheel={handleWheel}
     >
       <button
