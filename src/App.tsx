@@ -1,14 +1,14 @@
 import { Routes, Route, Link } from 'react-router-dom'
-import { Suspense, lazy } from "react"
+// import { Suspense, lazy } from 'react'
 
 import { DarkModeToggle } from './components/DarkModeToggle'
 import { ErrorPage } from './components/error/ErrorPage'
-import { Loading } from './components/Loading'
+// import { Loading } from './components/Loading'
 
 import { BrowsePage } from './pages/BrowsePage'
 import { MovieDetailPage } from './pages/MovieDetailPage'
 import { WatchlistPage } from './pages/WatchlistPage'
-import { MoodPage } from './pages/MoodPage'
+// import { MoodPage } from './pages/MoodPage'
 
 import { Clapperboard } from "lucide-react";
 
