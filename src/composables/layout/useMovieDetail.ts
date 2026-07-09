@@ -10,6 +10,7 @@ export function useMovieDetail(id: number) {
       tmdbFetch<MovieDetail>(endpoints.movieDetail(id), {
         append_to_response: 'credits',
       }),
+    retry: 3,  
     enabled: !!id,
   })
 }

@@ -7,6 +7,7 @@ export function useGenres() {
   return useQuery({
     queryKey: ['genres'],
     queryFn: () => tmdbFetch<{ genres: Genre[] }>(endpoints.genreList()),
+    retry: 3,
     staleTime: Infinity, // genre list basically never changes
   })
 }
