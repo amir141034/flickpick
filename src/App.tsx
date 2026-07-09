@@ -1,11 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { Suspense, lazy } from "react"
 
-const BrowsePage = lazy(() => import("./pages/BrowsePage"))
-const MovieDetailPage = lazy(() => import("./pages/MovieDetailPage"))
-const WatchListPage = lazy(() => import("./pages/WatchListPage"))
-const MoodPage = lazy(() => import("./pages/MoodPage"))
-
 import { DarkModeToggle } from './components/DarkModeToggle'
 import { ErrorPage } from './components/error/ErrorPage'
 import { Loading } from './components/Loading'
@@ -13,6 +8,11 @@ import { Loading } from './components/Loading'
 import { Clapperboard } from "lucide-react";
 
 function App() {
+  const BrowsePage = lazy(() => import("./pages/BrowsePage"))
+  const MovieDetailPage = lazy(() => import("./pages/MovieDetailPage"))
+  const WatchListPage = lazy(() => import("./pages/WatchListPage"))
+  const MoodPage = lazy(() => import("./pages/MoodPage"))
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <nav className="flex justify-between items-center p-4 text-gray-900 dark:text-white">
@@ -29,7 +29,7 @@ function App() {
           <DarkModeToggle />
         </div>
       </nav>
-      <Suspense fallback={<Loading/>}
+      <Suspense fallback={<Loading/>}>
         <Routes>
           <Route path="/" element={<BrowsePage />} />
           <Route path="/movie/:id" element={<MovieDetailPage />} />
