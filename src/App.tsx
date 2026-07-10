@@ -1,9 +1,9 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 
-import { DarkModeToggle } from './components/DarkModeToggle'
+import { DarkModeToggle } from './components/common/DarkModeToggle'
 import { ErrorPage } from './components/error/ErrorPage'
-import Loading from './components/Loading'
+import Loading from './components/common/Loading'
 
 
 import { Clapperboard } from "lucide-react";
