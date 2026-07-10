@@ -28,12 +28,12 @@ export function MovieDetailPage() {
   if (!data) return null
 
   return (
-    <div className="p-4 text-gray-900 dark:text-white max-w-3xl mx-auto">
+    <div className="p-4 text-gray-900 dark:text-white m-12">
       <button onClick={() => navigate(-1)} className="mb-4 text-sm text-gray-600 dark:text-gray-400 hover:text-white">
         ← Back
       </button>
 
-      <div className="flex flex-col md:flex-row sm:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-6">
         <img
           src={
             data.poster_path
@@ -41,13 +41,18 @@ export function MovieDetailPage() {
               : 'https://placehold.co/400x600?text=No+Poster'
           }
           alt={data.title}
-          className="rounded w-64"
+          className="rounded w-64 shrink-0 mx-auto md:mx-0"
         />
 
-        <div className='flex items-center gap-3'>
-          <h1 className="text-2xl font-bold">{data.title}</h1>
-          <FavoriteButton movie={data} className="text-2xl" />
-          {data.tagline && <p className="text-gray-600 dark:text-gray-400 italic mt-1">{data.tagline}</p>}
+        <div className="flex flex-col flex-1 min-w-0">
+          <div className="flex items-center gap-3">
+            <h1 className="text-2xl font-bold">{data.title}</h1>
+            <FavoriteButton movie={data} className="text-2xl" />
+          </div>
+
+          {data.tagline && (
+            <p className="text-gray-600 dark:text-gray-400 italic mt-1">{data.tagline}</p>
+          )}
 
           <div className="flex gap-4 text-sm text-gray-300 mt-3">
             <span>⭐ {data.vote_average.toFixed(1)}</span>
@@ -63,10 +68,15 @@ export function MovieDetailPage() {
             ))}
           </div>
 
-          <p className="mt-4 text-gray-200">{data.overview}</p>
+          <p className="mt-4 text-gray-200 shrink-0">{data.overview}</p>
 
           <h2 className="text-lg font-semibold mt-6 mb-2">Cast</h2>
-          <div className="flex gap-4 overflow-x-auto pb-2">
+          <div className="flex gap-4 overflow-x-auto pb-2" onWheel={(e) => {
+              if (e.deltaY !== 0) {
+                e.currentTarget.scrollLeft += e.deltaY;
+                e.preventDefault();
+              }
+            }}>
             {data.credits.cast.slice(0, 10).map((member) => (
               <div key={member.id} className="text-center w-20 shrink-0">
                 <img

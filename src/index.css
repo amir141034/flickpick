@@ -46,6 +46,7 @@
 
 html {
   scrollbar-width: none;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -58,6 +59,7 @@ body {
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
+  overflow-x: hidden;
 }
 
 @keyframes pop {
