@@ -8,7 +8,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import favoritesReducer from '../../composables/favorite/favoritesSlice'
 
-vi.mock('../../../api/tmdb', () => ({
+vi.mock('../../api/tmdb', () => ({
   tmdbFetch: vi.fn(),
 }))
 
@@ -38,7 +38,8 @@ describe('SearchResults', () => {
     renderWithProviders(<SearchResults query="zzzzxyz" />)
 
     await waitFor(() => {
-      expect(screen.getByText(/no results found for "zzzzxyz"/i)).toBeInTheDocument()
+      expect(screen.getByText(/no results found/i)).toBeInTheDocument()
+      expect(screen.getByText(/we couldn't find anything matching "zzzzxyz"/i)).toBeInTheDocument()
     })
   })
 
