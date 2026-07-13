@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 interface EmptyStateProps {
   title: string;
@@ -22,9 +22,9 @@ export function EmptyState({
         <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-sm">{message}</p>
       )}
       {actionLabel && actionHref && (
-        <Link to={actionHref} className="mt-4">
+        <NavLink to={actionHref} className="mt-4">
           <button>{actionLabel}</button>
-        </Link>
+        </NavLink>
       )}
       {actionLabel && onAction && !actionHref && (
         <button onClick={onAction} className="mt-4">

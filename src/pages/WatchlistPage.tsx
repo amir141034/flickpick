@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks'
 import { MovieCard } from '../components/layout/MovieCard'
 import { Heart, Film } from "lucide-react";
@@ -20,13 +20,13 @@ export function WatchlistPage() {
             Movies you favorite will show up here.
           </p>
         </div>
-        <Link
+        <NavLink
           to="/"
           className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
         >
           <Film className="h-4 w-4" />
           Browse movies
-        </Link>
+        </NavLink>
       </div>
     )
   }

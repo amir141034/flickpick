@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import type { Movie } from '../../types/tmdb'
 import { FavoriteButton } from '../favorite/FavoriteButton'
 import {usePrefetchMovieDetail} from '../../composables/layout/useMovieDetail'
@@ -21,7 +21,7 @@ export function MovieCard({ movie }: MovieCardProps) {
   }, [posterUrl]);
 
   return (
-    <Link
+    <NavLink
       to={`/movie/${movie.id}`}
       onMouseEnter={() => prefetchMovieDetail(movie.id)}
       className="group relative block text-gray-900 dark:text-white transition-transform duration-300 hover:-translate-y-1"
@@ -43,6 +43,6 @@ export function MovieCard({ movie }: MovieCardProps) {
       <p className="text-center text-sm mt-1 truncate transition-colors duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400">
         {movie.title}
       </p>
-    </Link>
+    </NavLink>
   );
 }
