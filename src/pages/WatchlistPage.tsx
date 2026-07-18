@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks'
+import type { RootState } from '../app/store'
 import { MovieCard } from '../components/movie/MovieCard'
 import { Heart, Film } from "lucide-react";
+import type { Movie } from '../types/tmdb'
 
 export function WatchlistPage() {
-  const favorites = useAppSelector((state: any) => state.favorites.items)
+  const favorites = useAppSelector((state: RootState) => state.favorites.items)
 
   if (favorites.length === 0) {
     return (
@@ -33,7 +35,7 @@ export function WatchlistPage() {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
-      {favorites.map((movie: any) => (
+      {favorites.map((movie: Movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>

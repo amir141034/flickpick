@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import type { RootState } from '../../app/store'
 import { toggleFavorite } from '../../features/favorite/favoritesSlice'
 import type { Movie } from '../../types/tmdb'
 
@@ -9,8 +10,8 @@ interface FavoriteButtonProps {
 
 export function FavoriteButton({ movie, className = '' }: FavoriteButtonProps) {
   const dispatch = useAppDispatch()
-  const isFavorite = useAppSelector((state: any) =>
-    state.favorites.items.some((m: any) => m.id === movie.id)
+  const isFavorite = useAppSelector((state: RootState) =>
+    state.favorites.items.some((m: Movie) => m.id === movie.id)
   )
 
   return (
